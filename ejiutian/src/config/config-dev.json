@@ -1,0 +1,8 @@
+{
+  "ZNJHCONSOLE": "https://jiutianbot-console-suzhou-2.cmecloud.cn:30443/znjhweb",
+  "ECLOUD_PREFIX": "https://ecloud.10086.cn:31008/",
+  "POOLLINK":"https://ecloud.10086.cn:31008/home/about/pool-mapping",
+  "MARKET_CODE": "4d7915220cbfa9",
+  "environment": 1,
+  "Pool-Id": "CIDC-RP-03"
+}
