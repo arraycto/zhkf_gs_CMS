@@ -1,0 +1,37 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: front-znjh-deploy
+  namespace: jt-ecloud-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-znjh
+  template:
+    metadata:
+      labels:
+        app: front-znjh
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node
+                    operator: In
+                    values:
+                      - cpu
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: front-znjh
+          image: harbor01.cmcc.com/jt-ecloud-test/front-znjh:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+          - name: NACOS_ADDRESS
+            value: nacos-headless:8848
+          - name: SERVER_PORT
+            value: "8080"
